@@ -40,7 +40,7 @@ async def start(event):
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Supertagger bot'un Kömək Menyusu**\n\nKomut: /all \n  Bu komutu, başqalarını bəhs etmək istədiyiniz mətinlə birlikdə istifadə edə bilərsiniz. \n`Örnek: /all Sabahınız xeyir!`  \nBu komutu yanıt olaraq istifadə edə bilərsiniz. hər hansə bir mesaj Bot, yanıtlanan ilətiyə istifadəçiləri etiketləyəcək.\n /tagadmin \nYalnız adminləri tag edəcəkdir. \n /tektag \nTək-tək tag edəcəkdir."
+  helptext = "**Piramida Tag Bot  bot'un Kömək Menyusu**\n\nKomut: /all \n  Bu komutu, başqalarını bəhs etmək istədiyiniz mətinlə birlikdə istifadə edə bilərsiniz. \n`Meselen: /all Sabahınız xeyir!`  \nBu komutu yanıt olaraq istifadə edə bilərsiniz. hər hansə bir mesaj Bot, yanıtlanan ilətiyə istifadəçiləri etiketləyəcək.\n /tagadmin \nYalnız adminləri tag edəcəkdir. \n /tektag \nTək-tək tag edəcəkdir."
   await event.reply(helptext,
                     buttons=(
                       [Button.url('🌟 Məni Qrupa əlavə et', 'https://t.me/PiramidaTagBot?startgroup=a'),
