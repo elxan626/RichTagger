@@ -184,13 +184,17 @@ def main():
   bot.run_until_disconnected()
 
 
+##############
 
+anlik_calisan = []
+
+tekli_calisan = []
 
 
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
-async def cancel(event): 
-      global emoji_calisan
-      emoji_calisan.remove(event.chat_id)
+async def cancel(event):
+  global emoji_calisan
+  anlik_calisan.remove(event.chat_id)
 
 
 emoji = " ❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 🙂 🙃 😉 😌 😍 🥰 😘 😗 😙 😚 😋 😛 😝 😜 🤪 🤨 🧐 🤓 😎 🤩 🥳 😏 😒 " \
@@ -199,9 +203,9 @@ emoji = " ❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 🙂 🙃 😉 😌 �
         "😻 😼 😽 🙀 😿 😾".split(" ")
 
 
-@client.on(events.NewMessage(pattern="^/emojitag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/etag ?(.*)"))
 async def mentionall(event):
-  global emoji_calisan
+  global anlik_calisan
   if event.is_private:
     return await event.respond("**Bu komutu gruplar ve kanallar için geçerli❗**")
   
@@ -242,7 +246,7 @@ async def mentionall(event):
         
   
   if mode == "text_on_reply":
-    emoji_calisan.append(event.chat_id)
+    anlik_calisan.append(event.chat_id)
  
     usrnum = 0
     usrtxt = ""
@@ -250,7 +254,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{random.choice(emoji)}](tg://user?id={usr.id}) "
       if event.chat_id not in emoji_calisan:
-        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @LuciBots**❌")
+        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @Roxy_Boss**❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
@@ -262,7 +266,7 @@ async def mentionall(event):
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global emoji_calisan
-  emoji_calisan.remove(event.chat_id)
+  anlik_calisan.remove(event.chat_id)
 
 
 @client.on(events.NewMessage(pattern="^/tag ?(.*)"))
@@ -323,11 +327,6 @@ async def mentionall(event):
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
-
-@client.on(events.NewMessage(pattern='^(?i)/cancel'))
-async def cancel(event):
-  global anlik_calisan
-  anlik_calisan.remove(event.chat_id)
 
 
 print(">> Bot işləyir merak etme 🚀 @Roxy_Boss bilgi alabilərsən <<")
