@@ -184,10 +184,149 @@ def main():
   bot.run_until_disconnected()
 
 
+@client.on(events.NewMessage(pattern='^(?i)/cancel'))
+async def cancel(event): 
+      global emoji_calisan
+       emoji_calisan.remove(event.chat_id)
+
+
+emoji = " ❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 🙂 🙃 😉 😌 😍 🥰 😘 😗 😙 😚 😋 😛 😝 😜 🤪 🤨 🧐 🤓 😎 🤩 🥳 😏 😒 " \
+        "😞 😔 😟 😕 🙁 😣 😖 😫 😩 🥺 😢 😭 😤 😠 😡  🤯 😳 🥵 🥶 😱 😨 😰 😥 😓 🤗 🤔 🤭 🤫 🤥 😶 😐 😑 😬 🙄 " \
+        "😯 😦 😧 😮 😲 🥱 😴 🤤 😪 😵 🤐 🥴 🤢 🤮 🤧 😷 🤒 🤕 🤑 🤠 😈 👿 👹 👺 🤡  👻 💀 👽 👾 🤖 🎃 😺 😸 😹 " \
+        "😻 😼 😽 🙀 😿 😾".split(" ")
+
+
+@client.on(events.NewMessage(pattern="^/etag ?(.*)"))
+async def mentionall(event):
+  global emoji_calisan
+  if event.is_private:
+    return await event.respond("**Bu komutu gruplar ve kanallar için geçerli❗**")
+  
+  admins = []
+  async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
+    admins.append(admin.id)
+  if not event.sender_id in admins:
+    return await event.respond("**Bu komutu sadace yoneticiler kullana bilir〽️**")
+  
+  if event.pattern_match.group(1):
+    mode = "text_on_cmd"
+    msg = event.pattern_match.group(1)
+  elif event.reply_to_msg_id:
+    mode = "text_on_reply"
+    msg = event.reply_to_msg_id
+    if msg == None:
+        return await event.respond("**Geçmiş mesajlar için etiket ede bilmiom**")
+  elif event.pattern_match.group(1) and event.reply_to_msg_id:
+    return await event.respond("Etiket Yapmak için sebeb yok❗️")
+  else:
+    return await event.respond("**Etikete Başlamak için sebeb yazın...!**")
+  
+  if mode == "text_on_cmd":
+    emoji_calisan.append(event.chat_id)
+    usrnum = 0
+    usrtxt = ""
+    async for usr in client.iter_participants(event.chat_id):
+      usrnum += 1
+      usrtxt += f"[{random.choice(emoji)}](tg://user?id={usr.id}) "
+      if event.chat_id not in emoji_calisan:
+        await event.respond("** Etiket işlemi başarıyla durduruldu❌**")
+        return
+      if usrnum == 5:
+        await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
+        await asyncio.sleep(2)
+        usrnum = 0
+        usrtxt = ""
+        
+  
+  if mode == "text_on_reply":
+    emoji_calisan.append(event.chat_id)
+ 
+    usrnum = 0
+    usrtxt = ""
+    async for usr in client.iter_participants(event.chat_id):
+      usrnum += 1
+      usrtxt += f"[{random.choice(emoji)}](tg://user?id={usr.id}) "
+      if event.chat_id not in emoji_calisan:
+        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @LuciBots**❌")
+        return
+      if usrnum == 5:
+        await client.send_message(event.chat_id, usrtxt, reply_to=msg)
+        await asyncio.sleep(2)
+        usrnum = 0
+        usrtxt = ""
+
+
+@client.on(events.NewMessage(pattern='^(?i)/cancel'))
+async def cancel(event):
+  global emoji_calisan
+  emoji_calisan.remove(event.chat_id)
+
+
+@client.on(events.NewMessage(pattern="^/tag ?(.*)"))
+async def mentionall(event):
+  global anlik_calisan
+  if event.is_private:
+    return await event.respond("Bu komutu gruplar ve kanallar için geçerli❗️**")
+  
+  admins = []
+  async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
+    admins.append(admin.id)
+  if not event.sender_id in admins:
+    return await event.respond("**Bu komutu sadace yoneticiler kullana bilir〽️**")
+  
+  if event.pattern_match.group(1):
+    mode = "text_on_cmd"
+    msg = event.pattern_match.group(1)
+  elif event.reply_to_msg_id:
+    mode = "text_on_reply"
+    msg = event.reply_to_msg_id
+    if msg == None:
+        return await event.respond("Önceki Mesajlara Cevab Vermeyin")
+  elif event.pattern_match.group(1) and event.reply_to_msg_id:
+    return await event.respond("Başlatmak için sebeb yok❗️")
+  else:
+    return await event.respond("Işleme başlamak için sebeb yok")
+  
+  if mode == "text_on_cmd":
+    anlik_calisan.append(event.chat_id)
+    usrnum = 0
+    usrtxt = ""
+    async for usr in client.iter_participants(event.chat_id):
+      usrnum += 1
+      usrtxt += f"👥 - [{usr.first_name}](tg://user?id={usr.id}) \n"
+      if event.chat_id not in anlik_calisan:
+        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @LuciBots**❌")
+        return
+      if usrnum == 5:
+        await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
+        await asyncio.sleep(2)
+        usrnum = 0
+        usrtxt = ""
+        
+  
+  if mode == "text_on_reply":
+    anlik_calisan.append(event.chat_id)
+ 
+    usrnum = 0
+    usrtxt = ""
+    async for usr in client.iter_participants(event.chat_id):
+      usrnum += 1
+      usrtxt += f"👥 - [{usr.first_name}](tg://user?id={usr.id}) \n"
+      if event.chat_id not in anlik_calisan:
+        await event.respond("işlem başarıyla durduruldu❌")
+        return
+      if usrnum == 5:
+        await client.send_message(event.chat_id, usrtxt, reply_to=msg)
+        await asyncio.sleep(2)
+        usrnum = 0
+        usrtxt = ""
+
+@client.on(events.NewMessage(pattern='^(?i)/cancel'))
+async def cancel(event):
+  global anlik_calisan
+  anlik_calisan.remove(event.chat_id)
+
+
 print(">> Bot işləyir merak etme 🚀 @Roxy_Boss bilgi alabilərsən <<")
 client.run_until_disconnected()
 run_until_disconnected()
-
-
-print(">> Bot işləyir merak etme 🚀 @Chaossupport bilgi alabilərsən <<")
-client.run_until_disconnected()
