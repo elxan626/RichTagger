@@ -187,7 +187,7 @@ def main():
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event): 
       global emoji_calisan
-       emoji_calisan.remove(event.chat_id)
+      emoji_calisan.remove(event.chat_id)
 
 
 emoji = " ❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 🙂 🙃 😉 😌 😍 🥰 😘 😗 😙 😚 😋 😛 😝 😜 🤪 🤨 🧐 🤓 😎 🤩 🥳 😏 😒 " \
