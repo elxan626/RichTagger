@@ -183,12 +183,12 @@ def main():
   bot.start(bot_token=TOKEN)
   bot.run_until_disconnected()
 
+#################
 
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event): 
       global emoji_calisan
       emoji_calisan.remove(event.chat_id)
-
 
 emoji = " ❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 🙂 🙃 😉 😌 😍 🥰 😘 😗 😙 😚 😋 😛 😝 😜 🤪 🤨 🧐 🤓 😎 🤩 🥳 😏 😒 " \
         "😞 😔 😟 😕 🙁 😣 😖 😫 😩 🥺 😢 😭 😤 😠 😡  🤯 😳 🥵 🥶 😱 😨 😰 😥 😓 🤗 🤔 🤭 🤫 🤥 😶 😐 😑 😬 🙄 " \
@@ -196,7 +196,7 @@ emoji = " ❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 🙂 🙃 😉 😌 �
         "😻 😼 😽 🙀 😿 😾".split(" ")
 
 
-@client.on(events.NewMessage(pattern="^/etag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/emojitag ?(.*)"))
 async def mentionall(event):
   global emoji_calisan
   if event.is_private:
