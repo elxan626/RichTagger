@@ -184,7 +184,6 @@ def main():
   bot.run_until_disconnected()
 
 
-##############
 
 anlik_calisan = []
 
