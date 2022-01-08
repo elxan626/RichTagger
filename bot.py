@@ -313,7 +313,7 @@ async def mentionall(event):
 
   
   @client.on(events.NewMessage(pattern='^(?i)/cancel'))
-async def cancel(event):
+  async def cancel(event):
   global emoji_calisan
   anlik_calisan.remove(event.chat_id)
 
