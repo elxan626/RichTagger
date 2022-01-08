@@ -213,7 +213,7 @@ async def mentionall(event):
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("**Bu komutu sadace yoneticiler kullana bilir〽️**")
+    return await event.respond("**Bu Əmri sadace yoneticiler işlədə  bilər〽️**")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -222,7 +222,7 @@ async def mentionall(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("**Geçmiş mesajlar için etiket ede bilmiom**")
+        return await event.respond("**Geçmiş mesajlar için tağ edə bilmirəm**")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
     return await event.respond("Etiket Yapmak için sebeb yok❗️")
   else:
@@ -279,7 +279,7 @@ async def mentionall(event):
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("**Bu komutu sadace yoneticiler kullana bilir〽️**")
+    return await event.respond("**Bu tağ prossesini sadace yoneticiler işlədə bilər〽️**")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -288,7 +288,7 @@ async def mentionall(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("Önceki Mesajlara Cevab Vermeyin")
+        return await event.respond("Əvvəlki Mesajlara Cevab Vermeyin")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
     return await event.respond("Başlatmak üçün sebeb yaz❗️")
   else:
@@ -302,7 +302,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"👥 - [{usr.first_name}](tg://user?id={usr.id}) \n"
       if event.chat_id not in anlik_calisan:
-        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @LuciBots**❌")
+        await event.respond("Tag Prossesi Ugurlu bir Şəkilde Durduruldu\n\n**Burada sizin reklamınız ola bilər @Roxy_Boss**❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
