@@ -309,7 +309,9 @@ async def mentionall(event):
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
-   
+ 
+
+  
   @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global emoji_calisan
@@ -319,8 +321,7 @@ async def cancel(event):
 soz = " R O X Y S T R A X F R A G M E N T F O N D L E S S E X Y B A B Y " \
         "İlan🐍 Bahar💮 Yazar✍️ Payız🍂  Qar❄️  Qasırğa🌀 Mesaj💌 Vulkan🌋 Pizza🍕 Nənə🧓 Soyuq🥶 Dino🦕 Ay🌙 Meteor☄️ 31 " \
         "Hicablı🧕 Gözəl❤  Alpen🍫 Kofe☕ Mişka Alp🏔️ Pubg🎮 Popcorn🍿  Qartal🦅  Bozqurd🐺 Rəssam🎨 Panda🐼 Aslan🦁" \
-        " 🧑‍💻🎉✨🎆🍇🍈🍉🌍🎎🎃🎸🎹🎷📻🎧💎💍👑".split(" ")
-
+        " 🧑‍💻 🎉 ✨ 🎆 🍇 🍈 🍉 🌍 🎎 🎃  🎸 🎹 🎷 📻 🎧 💎 💍 👑".split(" ")
 
 
 @client.on(events.NewMessage(pattern="^/stag ?(.*)"))
