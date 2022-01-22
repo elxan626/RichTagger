@@ -41,7 +41,7 @@ async def start(event):
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Old Tagger Bot'un Kömək Menyusu**\n\nƏmr: /all \n  Bu əmri, başqalarını bəhs etmək istədiyiniz mətinlə birlikdə istifadə edə bilərsiniz. \n`Məsələn: /all Sabahınız xeyir!`  \nBu əmri yanıt olaraq istifadə edə bilərsiniz. hər hansə bir mesaj Bot, yanıtlanan ilətiyə istifadəçiləri etiketləyəcək.\n /tagadmin \nYalnız adminləri tag edəcəkdir. \n /tektag \nTək-tək tag edəcəkdir.\n /etag /nEmojilernən tag edəcəkdir."
+  helptext = "**Old Tagger Bot'un Kömək Menyusu**\n\nƏmr: /all - Bu əmri, başqalarını bəhs etmək istədiyiniz mətinlə birlikdə istifadə edə bilərsiniz. \n /tagadmin - Yalnız adminləri tag edəcəkdir. \n /tektag - Tək-tək tag edəcəkdir.\n /etag - Emojilernən tag edəcəkdir."
   await event.reply(helptext,
                     buttons=(
                       [Button.url('🌟 Məni Qrupa əlavə et', 'https://t.me/OldTaggerBot?startgroup=a'),
