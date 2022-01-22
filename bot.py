@@ -32,7 +32,7 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("Salam {message.from_user.mention}.\n\nMən sizin əvəzinizdən qruplarnızda istifadəçiləri tag edə bilərəm.\n\nHaqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
+  await event.reply("Salam [{event.first_name}](tg://user?id={event.id}).\n\nMən sizin əvəzinizdən qruplarnızda istifadəçiləri tag edə bilərəm.\n\nHaqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
                     buttons=(
                       [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/OldTaggerBot?startgroup=a'),
                       Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
@@ -55,7 +55,7 @@ async def help(event):
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("__Bu əmr qruplarda və kanallarda işlədilə bilər!__")
+    return await event.respond("__**Bu əmr qruplarda və kanallarda işlədilə bilər!**__")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
@@ -115,7 +115,7 @@ async def mentionall(event):
 async def tektag(event):
   global elxan_tag
   if event.is_private:
-    return await event.respond(f"Bura qrup deyil!")
+    return await event.respond(f"**Bura qrup deyil!**")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
@@ -151,7 +151,7 @@ async def tektag(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in aykhan_tag:
-        await event.respond("⛔ Tək Tək Tag Prosesi Dayandırıldı",
+        await event.respond("**⛔ Tək Tək Tag Prosesi Dayandırıldı**",
                     buttons=(
                       [
                       Button.inline(f"yenidən", data="yenidən")
