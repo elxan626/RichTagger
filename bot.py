@@ -32,7 +32,7 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("Salam [{event.first_name}](tg://user?id={event.id}).\n\nMən sizin əvəzinizdən qruplarnızda istifadəçiləri tag edə bilərəm.\n\nHaqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
+  await event.reply("Salam 👋.\n\nMən sizin əvəzinizdən qruplarnızda istifadəçiləri tag edə bilərəm.\n\nHaqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
                     buttons=(
                       [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/OldTaggerBot?startgroup=a'),
                       Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
