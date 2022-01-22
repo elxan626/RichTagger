@@ -36,7 +36,6 @@ async def start(event):
                     buttons=(
                       [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/OldTaggerBot?startgroup=a'),
                       Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
-                      Button.url('💭 Qrupumuz'‚ 'https://t.me/oldmafiagroup')]
                     ),
                     link_preview=False
                    )
@@ -47,7 +46,6 @@ async def help(event):
                     buttons=(
                       [Button.url('🌟 Məni Qrupa əlavə et', 'https://t.me/OldTaggerBot?startgroup=a'),
                       Button.url('🧑‍💻 Sahibim', 'https://t.me/muellime')]
-                      Button.url('💭 Qrupumuz'‚ 'https://t.me/oldmafiagroup')]
                     ),
                     link_preview=False
                    )
