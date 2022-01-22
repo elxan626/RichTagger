@@ -17,7 +17,7 @@ bot_token = os.environ.get("TOKEN")
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 anlik_calisan = []
-aykhan_tag = []
+elxan_tag = []
 #tektag
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
@@ -171,7 +171,7 @@ async def tektag(event):
 @client.on(events.NewMessage(pattern=lambda x: "/tagadmin" in x.lower(), incoming=True))
 async def tag_admin(event):
     chat = await event.get_input_chat()
-    text = "Tagging admins"
+    text = "Adminlər Tag Olunur"
     async for x in event.client.iter_participants(chat, 100, filter=ChannelParticipantsAdmins):
         text += f" \n [{x.first_name}](tg://user?id={x.id})"
     if event.reply_to_msg_id:
@@ -226,7 +226,7 @@ async def mentionall(event):
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
     return await event.respond("**Tag eləmək üçün səbəb yoxdur**❗️")
   else:
-    return await event.respond("**Tag Prossesinə Başlamaq Üçün Səbəb Yazın...!**")
+    return await event.respond("**Tag Prossesinə Başlamaq Üçün Səbəb Yazın**❗️")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
@@ -290,9 +290,9 @@ async def mentionall(event):
     if msg == None:
         return await event.respond("Əvvəlki Mesajlara Cavab Verməyin")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("**Başlamaq üçün səbəb yaz**❗️")
+    return await event.respond("**Tag eləmək üçün səbəb yoxdur**❗️")
   else:
-    return await event.respond("**Tag Prossesinə Başlamaq Üçün Səbəb Yazın**")
+    return await event.respond("**Tag Prossesinə Başlamaq Üçün Səbəb Yazın**❗️")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
@@ -302,7 +302,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"👥 - [{usr.first_name}](tg://user?id={usr.id}) \n"
       if event.chat_id not in anlik_calisan:
-        await event.respond("**Tag prosesi uğurla  dayandırıldı**❌\n\n**Burada sizin reklamınız ola bilər @Nadjafoovv**❌")
+        await event.respond("**Tag prosesi uğurla dayandırıldı**❌\n\n**Burada sizin reklamınız ola bilər @Nadjafoovv**❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
