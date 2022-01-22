@@ -32,7 +32,7 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("Salam **{message.from_user.mention}**.\n\nMən sizin əvəzinizdən qruplarnızda istifadəçiləri tağ edə bilərəm.\n\nHaqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
+  await event.reply("Salam **{message.from_user.mention}**.\n\nMən sizin əvəzinizdən qruplarnızda istifadəçiləri tag edə bilərəm.\n\nHaqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
                     buttons=(
                       [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/OldTaggerBot?startgroup=a'),
                       Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
@@ -41,7 +41,7 @@ async def start(event):
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Old Tagger Bot'un Kömək Menyusu**\n\nƏmrlər:\n/all - Bu əmri, başqalarını bəhs etmək istədiyiniz mətinlə birlikdə istifadə edə bilərsiniz. \n /tagadmin - Yalnız adminləri tag edəcəkdir. \n /tektag - Tək-tək tag edəcəkdir.\n /etag - Emojilərnən tag edəcəkdir."
+  helptext = "**Old Tagger Bot'un Kömək Menyusu**\n\nƏmrlər:\n/all - Bu əmri, başqalarını bəhs etmək istədiyiniz mətinlə birlikdə istifadə edə bilərsiniz. \n/tagadmin - Yalnız adminləri tag edəcəkdir. \n/tektag - Tək-tək tag edəcəkdir.\n/etag - Emojilərnən tag edəcəkdir."
   await event.reply(helptext,
                     buttons=(
                       [Button.url('🌟 Məni Qrupa əlavə et', 'https://t.me/OldTaggerBot?startgroup=a'),
@@ -55,13 +55,13 @@ async def help(event):
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("__Bu əmr qruplarda və kanallarda işlədilə bilər.!__")
+    return await event.respond("__Bu əmr qruplarda və kanallarda işlədilə bilər!__")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("__Yalnız adminlər bu əmrdən isdifadə  edə bilər!__")
+    return await event.respond("__Yalnız adminlər bu əmrdən isdifadə edə bilər!__")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -70,7 +70,7 @@ async def mentionall(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("__Köhnə mesajlar üçün userləri tağ edə bilmərəm! (bu mesaj məni qrupa əlavə etməmişdən qabaq yazılıb)__")
+        return await event.respond("__Köhnə mesajlar üçün userləri tag edə bilmərəm! (bu mesaj məni qrupa əlavə etməmişdən qabaq yazılıb)__")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
     return await event.respond("__Mənə bir arqument ver!__")
   else:
@@ -84,7 +84,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("Tağ uğurlu şəkildə dayandırıldı ❌")
+        await event.respond("Tag uğurlu şəkildə dayandırıldı ❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
@@ -102,7 +102,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("Tağ uğurlu şəkildə dayandırıldı ❌")
+        await event.respond("Tag uğurlu şəkildə dayandırıldı ❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
@@ -113,15 +113,15 @@ async def mentionall(event):
 
 @client.on(events.NewMessage(pattern="^/tektag ?(.*)"))
 async def tektag(event):
-  global aykhan_tag
+  global elxan_tag
   if event.is_private:
-    return await event.respond(f"Bura qrup deyil")
+    return await event.respond(f"Bura qrup deyil!")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond(f"Yalnız Adminlər Tağ Edə Bilər")
+    return await event.respond(f"Yalnız Adminlər Tag Edə Bilər")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -132,12 +132,12 @@ async def tektag(event):
     if msg == None:
         return await event.respond("__Köhnə mesajları görə bilmirəm! (bu mesaj məni qrupa əlavə etməmişdən qabaq yazılıb)__")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("__Tağ mesajı yazmadın!__")
+    return await event.respond("__Tag üçün mesajı yazmadın!__")
   else:
-    return await event.respond("__Tağ etmək üçün bir mesajı yanıtlayın və ya bir mətn yazın!__")
+    return await event.respond("__Tag etmək üçün bir mesajı yanıtlayın və ya bir mətn yazın!__")
     
   if mode == "text_on_cmd":
-    await client.send_message(event.chat_id, "❄️ Tək-Tək Tağ Başladı\n⏱️ İnterval - 2 saniyə",
+    await client.send_message(event.chat_id, "❄️ Tək-Tək Tag Başladı\n⏱️ İnterval - 2 saniyə",
                     buttons=(
                       [
                       Button.inline(f"dayandır", data="cancel")
@@ -151,7 +151,7 @@ async def tektag(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in aykhan_tag:
-        await event.respond("⛔ Tək Tək Tağ Prosesi Dayandırıldı",
+        await event.respond("⛔ Tək Tək Tag Prosesi Dayandırıldı",
                     buttons=(
                       [
                       Button.inline(f"yenidən", data="yenidən")
@@ -207,7 +207,7 @@ emoji = " ❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 🙂 🙃 😉 😌 �
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("**Bu əmr qruplar ve kanallar üçün etibarlıdır❗**")
+    return await event.respond("**Bu əmr qruplar və kanallar üçün etibarlıdır❗**")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
@@ -224,9 +224,9 @@ async def mentionall(event):
     if msg == None:
         return await event.respond("**bu mesaj məni qrupa əlavə etməmişdən qabaq yazılıb**")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("Tağ eləmək üçün səbəb yoxdur❗️")
+    return await event.respond("Tag eləmək üçün səbəb yoxdur❗️")
   else:
-    return await event.respond("**Tağ Prossesinə Başlamaq Üçün Səbəb Yazın...!**")
+    return await event.respond("**Tag Prossesinə Başlamaq Üçün Səbəb Yazın...!**")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
@@ -236,7 +236,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{random.choice(emoji)}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("** Tağ prosesi uğurla  dayandırıldı❌**")
+        await event.respond("** Tag prosesi uğurla  dayandırıldı❌**")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
@@ -254,7 +254,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{random.choice(emoji)}](tg://user?id={usr.id}) "
       if event.chat_id not in emoji_calisan:
-        await event.respond("Tağ prosesi uğurla  dayandırıldı❌\n\n**Burada sizin reklamınız ola bilər @muellime**❌")
+        await event.respond("Tag prosesi uğurla  dayandırıldı❌\n\n**Burada sizin reklamınız ola bilər @Nadjafoovv**❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
@@ -273,7 +273,7 @@ async def cancel(event):
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("Bu əmr qruplar ve kanallar üçün etibarlıdır❗️**")
+    return await event.respond("Bu əmr qruplar və kanallar üçün etibarlıdır❗️**")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
@@ -292,7 +292,7 @@ async def mentionall(event):
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
     return await event.respond("Başlamaq üçün səbəb yaz❗️")
   else:
-    return await event.respond("Tağ Prossesinə Başlamaq Üçün Səbəb Yazın")
+    return await event.respond("Tag Prossesinə Başlamaq Üçün Səbəb Yazın")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
@@ -302,7 +302,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"👥 - [{usr.first_name}](tg://user?id={usr.id}) \n"
       if event.chat_id not in anlik_calisan:
-        await event.respond("Tağ prosesi uğurla  dayandırıldı❌\n\n**Burada sizin reklamınız ola bilər @muellime**❌")
+        await event.respond("Tag prosesi uğurla  dayandırıldı❌\n\n**Burada sizin reklamınız ola bilər @Nadjafoovv**❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
