@@ -21,8 +21,8 @@ aykhan_tag = []
 #tektag
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
-  global aykhan_tag
-  aykhan_tag.remove(event.chat_id)
+  global elxan_tag
+  elxan_tag.remove(event.chat_id)
 
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
