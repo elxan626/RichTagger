@@ -32,10 +32,11 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("**Old Tagger Bot**, Qrup və ya kanaldakı demək olarki bütün userləri tag edə bilərəm ★\nDaha ətraflı məlumat üçün **/help**'i tıklayın.",
+  await event.reply("Salam "{usr.first_name}".\n\n\Mən sizin əvəzinizdən qruplarnızda istifadəçiləri tağ edə bilərəm.\n\n\Haqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
                     buttons=(
-                      [Button.url('🌟 Məni Qrupa əlavə et', 'https://t.me/OldTaggerBot?startgroup=a'),
-                      Button.url('🇦🧑‍💻 Sahibim', 'https://t.me/muellime')]
+                      [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/OldTaggerBot?startgroup=a'),
+                      Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
+                      Button.url('💭 Qrupumuz'‚ 'https://t.me/oldmafiagroup')]
                     ),
                     link_preview=False
                    )
@@ -46,6 +47,7 @@ async def help(event):
                     buttons=(
                       [Button.url('🌟 Məni Qrupa əlavə et', 'https://t.me/OldTaggerBot?startgroup=a'),
                       Button.url('🧑‍💻 Sahibim', 'https://t.me/muellime')]
+                      Button.url('💭 Qrupumuz'‚ 'https://t.me/oldmafiagroup')]
                     ),
                     link_preview=False
                    )
