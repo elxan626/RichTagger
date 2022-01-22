@@ -32,7 +32,7 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("Salam 👋.\n\nMən sizin əvəzinizdən qruplarnızda istifadəçiləri tag edə bilərəm.\n\nHaqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
+  await event.reply("Salam 👋\n\nMən sizin əvəzinizdən qruplarnızda istifadəçiləri tag edə bilərəm.\n\nHaqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
                     buttons=(
                       [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/OldTaggerBot?startgroup=a'),
                       Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
@@ -130,14 +130,14 @@ async def tektag(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("__Köhnə mesajları görə bilmirəm! (bu mesaj məni qrupa əlavə etməmişdən qabaq yazılıb)__")
+        return await event.respond("__**Köhnə mesajları görə bilmirəm! (bu mesaj məni qrupa əlavə etməmişdən qabaq yazılıb**)__")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("__Tag üçün mesajı yazmadın!__")
+    return await event.respond("__**Tag üçün mesajı yazmadın!**__")
   else:
-    return await event.respond("__Tag etmək üçün bir mesajı yanıtlayın və ya bir mətn yazın!__")
+    return await event.respond("__**Tag etmək üçün bir mesajı yanıtlayın və ya bir mətn yazın!**__")
     
   if mode == "text_on_cmd":
-    await client.send_message(event.chat_id, "❄️ Tək-Tək Tag Başladı\n⏱️ İnterval - 2 saniyə",
+    await client.send_message(event.chat_id, "❄️ **Tək-Tək Tag Başladı**\n⏱️ İnterval - 2 saniyə",
                     buttons=(
                       [
                       Button.inline(f"dayandır", data="cancel")
@@ -224,7 +224,7 @@ async def mentionall(event):
     if msg == None:
         return await event.respond("**bu mesaj məni qrupa əlavə etməmişdən qabaq yazılıb**")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("Tag eləmək üçün səbəb yoxdur❗️")
+    return await event.respond("**Tag eləmək üçün səbəb yoxdur**❗️")
   else:
     return await event.respond("**Tag Prossesinə Başlamaq Üçün Səbəb Yazın...!**")
   
@@ -236,7 +236,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{random.choice(emoji)}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("** Tag prosesi uğurla  dayandırıldı❌**")
+        await event.respond("**Tag prosesi uğurla  dayandırıldı❌**")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
@@ -290,9 +290,9 @@ async def mentionall(event):
     if msg == None:
         return await event.respond("Əvvəlki Mesajlara Cavab Verməyin")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("Başlamaq üçün səbəb yaz❗️")
+    return await event.respond("**Başlamaq üçün səbəb yaz**❗️")
   else:
-    return await event.respond("Tag Prossesinə Başlamaq Üçün Səbəb Yazın")
+    return await event.respond("**Tag Prossesinə Başlamaq Üçün Səbəb Yazın**")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
@@ -302,7 +302,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"👥 - [{usr.first_name}](tg://user?id={usr.id}) \n"
       if event.chat_id not in anlik_calisan:
-        await event.respond("Tag prosesi uğurla  dayandırıldı❌\n\n**Burada sizin reklamınız ola bilər @Nadjafoovv**❌")
+        await event.respond("**Tag prosesi uğurla  dayandırıldı**❌\n\n**Burada sizin reklamınız ola bilər @Nadjafoovv**❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
