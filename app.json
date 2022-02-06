@@ -1,18 +1,18 @@
 {
-  "name": "ROXY",
-  "logo":"",
-  "description": "ROXY bot sıze ucretsız uyelerınızı etıketleyen bı bottur.",
+  "name": "Rich Tagger Bot",
+  "logo":"https://telegra.ph/file/243a7b19fb8d1e978ca34.jpg",
+  "description": "Rich Tagger Bot ərupa və kanallarda userleri tag edən botdur.",
   "env": {
     "TOKEN": {
       "description": "bot token girin.",
       "value": ""
     },
     "APP_ID": {
-      "description": "@otomytelegrambot dan api hash api id alınız.",
+      "description": "@otomytelegrambot dan api id alın.",
       "value": ""
     },
     "API_HASH": {
-      "description": "@otomytelegrambot dan api hash api id alınız.",
+      "description": "@otomytelegrambot dan api hash alın.",
       "value": ""
     }
   },
