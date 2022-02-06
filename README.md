@@ -1,12 +1,12 @@
-# Super Tagger Bot
-_**Bu bot, gruplarda 10.000'e kadar üyeden bahsedebilir ve kanallarda 200'e kadar üyeden bahsedebilir. !**_
+# Rich Tagger Bot
+_**Bu bot, qruplarda 10.000'ə qədər useri və kanallarda 200'ə qədər useri tağ ede bilər !**_
 
-### 🏷 Bilgi
+### 🏷 İnfo
 - Dil: Python.
-- Telgraf Kütüphanesi: Telethon.
+- Telgraf Kitabxanası: Telethon.
 
+### 🚀 Deploy to heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/elxan626/RichTagger)
 
-### 🎯 Krediler ve Diğer
-- [Ben](https://github.com/hasanli555) bu Proje için ;)
-
-**Beni Github'dan takip etmeyi unutmayın ✌️**
+### 🎯 Mənimlə əlaqə
+- [Telegam](https://t.me/muellime) :)
