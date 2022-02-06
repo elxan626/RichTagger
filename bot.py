@@ -41,7 +41,7 @@ async def start(event):
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Rich Tagger Bot'un Kömək Menyusu**\n\nƏmrlər:\n/all - Bu əmri, başqalarını bəhs etmək istədiyiniz mətinlə birlikdə istifadə edə bilərsiniz. \n/tagadmin - Yalnız adminləri tag edəcəkdir. \n/tektag - Tək-tək tag edəcəkdir.\n/etag - Emojilər ilə tag edəcəkdir."
+  helptext = "**Rich Tagger Bot'un Kömək Menyusu**\n\nƏmrlər:\n/all <səbəb> - 5-li tag edəcəkdir. \n/tagadmin <səbəb> - Yalnız adminləri tag edəcəkdir. \n/tektag <səbəb> - Tək-tək tag edəcəkdir.\n/etag <səbəb> - Emojilər ilə tag edəcəkdir."
   await event.reply(helptext,
                     buttons=(
                       [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/RichTaggerBot?startgroup=a'),
@@ -72,7 +72,7 @@ async def mentionall(event):
     if msg == None:
         return await event.respond("__**Köhnə mesajlar üçün userləri tag edə bilmərəm ❗ (bu mesaj məni qrupa əlavə etməmişdən qabaq yazılıb)**__")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("__Mənə bir arqument ver!__")
+    return await event.respond("__**Mənə bir arqument ver** ❗__")
   else:
     return await event.respond("__**Bir mesajı yanıtlayın və ya başqalarını tag etmək üçün mənə bir mətin verin** ❗__")
     
