@@ -151,7 +151,7 @@ async def tektag(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in aykhan_tag:
-        await event.respond("**⛔ Tək Tək Tag Prosesi Dayandırıldı**",
+        await event.respond("**⛔ Tək Tək Tag Prosesi Dayandırıldı**")
                     buttons=(
                       [
                       Button.inline(f"yenidən", data="yenidən")
@@ -226,8 +226,7 @@ async def mentionall(event):
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
     return await event.respond("**Tag eləmək üçün səbəb yoxdur**❗")
   else:
-    return await event.respond("**Tag Prossesinə Başlamaq Üçün Səbəb Yazın** 
-❗")
+    return await event.respond("**Tag Prossesinə Başlamaq Üçün Səbəb Yazın**❗")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
