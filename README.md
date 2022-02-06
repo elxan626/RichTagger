@@ -1,5 +1,5 @@
 # Rich Tagger Bot
-_**Bu bot, qruplarda 10.000'ə qədər useri və kanallarda 200'ə qədər useri tağ ede bilər !**_
+_**Bu bot, qruplarda 10.000'ə qədər useri və kanallarda 200'ə qədər useri tağ edə bilər !**_
 
 ### 🏷 İnfo
 - Dil: Python.
