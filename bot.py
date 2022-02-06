@@ -144,7 +144,7 @@ async def tektag(event):
                       ]
                     )
                   ) 
-    aykhan_tag.append(event.chat_id)
+    elxan_tag.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
@@ -207,7 +207,7 @@ emoji = " ❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 🙂 🙃 😉 😌 �
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("**Bu əmr qruplar və kanallar üçün etibarlıdır❗**")
+    return await event.respond("**Bu əmr qruplar və kanallar üçün etibarlıdır** ❗")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
