@@ -151,7 +151,7 @@ async def tektag(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in aykhan_tag:
-        await event.respond("**⛔ Tək Tək Tag Prosesi Dayandırıldı**")
+        await event.respond("**⛔ Tək Tək Tag Prosesi Dayandırıldı**",
                     buttons=(
                       [
                       Button.inline(f"yenidən", data="yenidən")
