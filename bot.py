@@ -34,8 +34,10 @@ async def cancel(event):
 async def start(event):
   await event.reply("Salam 👋\n\nMən sizin əvəzinizdən qruplarnızda istifadəçiləri tag edə bilərəm.\n\nHaqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
                     buttons=(
-                      [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/RichTaggerBot?startgroup=a'),
-                      Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
+                      [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/RichTaggerBot?startgroup=a')],
+                      [Button.url('🛠 Support', 'https://t.me/RichTaggerSupport'),
+                      Button.url('📣 Rəsmi Kanal', 'https://t.me/RichTaggerNews')],
+                      [Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
                     ),
                     link_preview=False
                    )
@@ -44,8 +46,10 @@ async def help(event):
   helptext = "**Rich Tagger Bot'un Kömək Menyusu**\n\nƏmrlər:\n/all <səbəb> - 5-li tag edəcəkdir. \n/tagadmin <səbəb> - Yalnız adminləri tag edəcəkdir. \n/tektag <səbəb> - Tək-tək tag edəcəkdir.\n/etag <səbəb> - Emojilər ilə tag edəcəkdir."
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/RichTaggerBot?startgroup=a'),
-                      Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
+                      [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/RichTaggerBot?startgroup=a')],
+                      [Button.url('🛠 Support', 'https://t.me/RichTaggerSupport'),
+                      Button.url('📣 Rəsmi Kanal', 'https://t.me/RichTaggerNews')],
+                      [Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
                     ),
                     link_preview=False
                    )
