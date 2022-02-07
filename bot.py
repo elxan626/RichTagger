@@ -150,7 +150,7 @@ async def tektag(event):
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
-      if event.chat_id not in aykhan_tag:
+      if event.chat_id not in elxan_tag:
         await event.respond("**⛔ Tək Tək Tag Prosesi Dayandırıldı**",
                     buttons=(
                       [
@@ -173,7 +173,7 @@ async def tag_admin(event):
     chat = await event.get_input_chat()
     text = "Adminlər Tag Olunur"
     async for x in event.client.iter_participants(chat, 100, filter=ChannelParticipantsAdmins):
-        text += f" \n [{x.first_name}](tg://user?id={x.id})"
+        text += f" \n 👤 [{x.first_name}](tg://user?id={x.id})"
     if event.reply_to_msg_id:
         await event.client.send_message(event.chat_id, text, reply_to=event.reply_to_msg_id)
     else:
