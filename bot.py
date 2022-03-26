@@ -35,9 +35,9 @@ async def start(event):
   await event.reply("Salam 👋\n\nMən sizin əvəzinizdən qruplarnızda istifadəçiləri tag edə bilərəm.\n\nHaqqımda daha ətraflı məlumat əldə etmək üçün /help əmrinə toxunun.",
                     buttons=(
                       [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/RichTaggerBot?startgroup=a')],
-                      [Button.url('🛠 Support', 'https://t.me/ElxanBotsSupport'),
-                      Button.url('📣 Rəsmi Kanal', 'https://t.me/ElxanBots')],
-                      [Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
+                      [Button.url('🛠 Support', 'https://t.me/SOQrup'),
+                      Button.url('📣 Rəsmi Kanal', 'https://t.me/ledyplaylist')],
+                      [Button.url('👨‍💻 Sahibim', 'https://t.me/ruzgar_alican')]
                     ),
                     link_preview=False
                    )
@@ -47,9 +47,9 @@ async def help(event):
   await event.reply(helptext,
                     buttons=(
                       [Button.url('🌟 Məni Qrupa Sal', 'https://t.me/RichTaggerBot?startgroup=a')],
-                      [Button.url('🛠 Support', 'https://t.me/ElxanBotsSupport'),
-                      Button.url('📣 Rəsmi Kanal', 'https://t.me/ElxanBots')],
-                      [Button.url('👨‍💻 Sahibim', 'https://t.me/muellime')]
+                      [Button.url('🛠 Support', 'https://t.me/SOQrup'),
+                      Button.url('📣 Rəsmi Kanal', 'https://t.me/ledyplaylist')],
+                      [Button.url('👨‍💻 Sahibim', 'https://t.me/ruzgar_alican')]
                     ),
                     link_preview=False
                    )
@@ -315,6 +315,6 @@ async def mentionall(event):
         usrtxt = ""
  
 
-print(">> Bot işləyir narahat olma 🚀 məlumat almaq üçün @muellime yazın <<")
+print(">> Bot işləyir narahat olma 🚀 məlumat almaq üçün @tenha055 yazın <<")
 client.run_until_disconnected()
 run_until_disconnected()
